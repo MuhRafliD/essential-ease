@@ -1,7 +1,7 @@
 # Tugas 2 PBP
-## Muhammad Rafi Darmawan
-## 2206828052
-## PBP B
+Muhammad Rafi Darmawan
+2206828052
+PBP B
 
 # Essential Ease
 "EssentialEase" adalah aplikasi unggulan yang dirancang untuk membuat belanja kebutuhansehari-hari Anda menjadi pengalaman yang lebih mudah, efisien, dan menyenangkan. Aplikasi ini adalah solusi lengkap untuk semua kebutuhan rumah tangga Anda.
