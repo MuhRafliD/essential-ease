@@ -1,15 +1,15 @@
-# Tugas 2 PBP
-Muhammad Rafi Darmawan(2206828052) - PBP B
+# Muhammad Rafi Darmawan(2206828052) - PBP B
 
 # Essential Ease
 "EssentialEase" adalah aplikasi unggulan yang dirancang untuk membuat belanja kebutuhansehari-hari Anda menjadi pengalaman yang lebih mudah, efisien, dan menyenangkan. Aplikasi ini adalah solusi lengkap untuk semua kebutuhan rumah tangga Anda.
 
 EssentialEase adalah sahabat Anda dalam menjalani kehidupan sehari-hari yang sibuk. Dengan kemudahan belanja, pengiriman cepat, dan beragam fitur yang memudahkan, Anda dapat fokus pada hal-hal yang benar-benar penting dalam hidup Anda. Jadi, nikmati hidup tanpa stres dengan EssentialEase!
 
-![warehous](https://github.com/MuhRafliD/essential-ease/blob/main/assets/jual%20beli.jpg?raw=true)
+![warehous](https://github.com/MuhRafliD/essential-ease/blob/main/assets/background-toko-online-8%20(1).jpg?raw=true)
 
 [Klik disini untuk membuka apikasi](https://essential-ease.adaptable.app/)
 
+# Tugas 2 
 ## Jawaban
 ### Nomor 1
 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
@@ -68,3 +68,40 @@ Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 MVC adalah Model-View-Controller. Dalam MVC, Model menyimpan data dan logika aplikasi, View menampilkan data dari Model, dan Controller berfungsi sebagai perantara antara Model dan View. 
 MVT adalah Model-View-Template. Dalam MVT, Model menyimpan data dan logika aplikasi, View menampilkan data dari Model dan menghubungkannya ke template, dan Template menentukan tampilan antarmuka pengguna. 
 MVVM adalah Model-View-ViewModel. Dalam MVVM, Model menyimpan data dan logika aplikasi, View menampilkan data dari Model, dan ViewModel mengubah data dari Model menjadi format yang dapat dengan mudah ditampilkan dan diinteraksi oleh View. MVC dan MVT mirip, dengan perbedaan utama terletak pada terminologi yang digunakan dan detail implementasi yang khusus dalam kerangka kerja masing-masing. MVVM memperkenalkan pemisahan yang jelas antara View dan ViewModel, dengan penekanan pada data binding dan komunikasi dua arah antara keduanya.
+
+# Tugas 3 
+## Jawaban
+### Nomor 1
+Apa perbedaan antara form POST dan form GET dalam Django?
+
+Perbedaannya terletak pada penggunaannya. POST digunakan jika permintaan membuat perubahan dalam basis data atau dalam hal lain kita menggunakan POST untuk mengirim data ke basis data. GET hanya digunakan untuk permintaan yang tidak memengaruhi status sistem atau dalam hal lain kita menggunakan GET untuk mengambil data dari basis data tanpa mengubahnya.
+
+### Nomor 2
+Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+
+HTML adalah blok bangunan utama dalam pengembangan web dan digunakan untuk mendefinisikan struktur halaman. Sementara JSON dan XML digunakan untuk mengangkut data antara server, ada perbedaan antara keduanya. XML cocok untuk data yang terstruktur dan mandiri, sedangkan JSON lebih disukai untuk pertukaran data ringan dan integrasi dengan JavaScript.
+
+### Nomor 3
+Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+
+HTML adalah blok bangunan utama dalam pengembangan web dan digunakan untuk mendefinisikan struktur halaman. Sementara JSON dan XML digunakan untuk mengangkut data antara server, ada perbedaan antara keduanya. XML cocok untuk data yang terstruktur dan mandiri, sedangkan JSON lebih disukai untuk pertukaran data ringan dan integrasi dengan JavaScript.
+
+### Nomor 4
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step
+
+1. Membuat `form.py` di dalam folder `main`.
+2. Membuat objek `create_item` di dalam file `view.py`
+3. Mengedit fungsi `show_main` di dalam file `view.py`
+4. Membuat URL routiing untuk `create_item`
+5. Membuat file `create_item.html` di dalam folder `templates` yang berada di dalam folder `main`
+6. Membuat objek `show_xml` dan membuat URL routingnya
+7. Membuat objek `show_json` dan membuat URL routingnya
+8. Membuat objek `show_xml_by_id` dan membuat URL routingnya
+9. Membuat objek `show_json_by_id` dan membuat URL routingnya
+
+### Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
+
+
+
+
+
