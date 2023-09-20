@@ -90,17 +90,44 @@ HTML adalah blok bangunan utama dalam pengembangan web dan digunakan untuk mende
 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step
 
 1. Membuat `form.py` di dalam folder `main`.
-2. Membuat objek `create_item` di dalam file `view.py`
-3. Mengedit fungsi `show_main` di dalam file `view.py`
-4. Membuat URL routiing untuk `create_item`
-5. Membuat file `create_item.html` di dalam folder `templates` yang berada di dalam folder `main`
-6. Membuat objek `show_xml` dan membuat URL routingnya
-7. Membuat objek `show_json` dan membuat URL routingnya
-8. Membuat objek `show_xml_by_id` dan membuat URL routingnya
-9. Membuat objek `show_json_by_id` dan membuat URL routingnya
+   
+3. Membuat objek `create_item` di dalam file `view.py`
+   
+5. Mengedit fungsi `show_main` di dalam file `view.py`
+   
+7. Membuat URL routiing untuk `create_item`
+   
+9. Membuat file `create_item.html` di dalam folder `templates` yang berada di dalam folder `main`
+10. Membuat objek `show_xml` dan membuat URL routingnya
+    Objek Item yang Diambil dan Dikembalikan sebagai XML dengan Menggunakan
+    ```py
+    def show_xml(request):
+        data = Item.objects.all()
+        return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+    ```
+    di `urls.py` di dalam `essential_ease` tambahkan `path('show_xml/', show_xml, name='show_xml'),`
+12. Membuat objek `show_json` dan membuat URL routingnya
+    Objek Item yang Diambil dan Dikembalikan sebagai JSON dengan Menggunakan
+   ```py
+    def show_json(request):
+        data = Item.objects.all()
+        return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+   ```
+   di `urls.py` di dalam `essential_ease` tambahkan `path('show_json/', show_json, name='show_json'),`
+14. Membuat objek `show_xml_by_id` dan membuat URL routingnya
+15. Membuat objek `show_json_by_id` dan membuat URL routingnya
 
 ### Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
+![biasa](https://github.com/MuhRafliD/essential-ease/blob/main/assets/Screenshot%20(312).png?raw=true)
 
+![xml](https://github.com/MuhRafliD/essential-ease/blob/main/assets/Screenshot%20(307).png?raw=true)
+
+![json](https://github.com/MuhRafliD/essential-ease/blob/main/assets/Screenshot%20(308).png?raw=true)
+
+![xmlid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/Screenshot%20(310).png?raw=true)
+
+![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/Screenshot%20(311).png?raw=true)
 
 
 
