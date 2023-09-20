@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main', '0002_product_date_added'),
+        ('main', '0001_initial'),
     ]
 
     operations = [
@@ -15,7 +15,6 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=255)),
-                ('date_added', models.DateField(auto_now_add=True)),
                 ('amount', models.IntegerField()),
                 ('description', models.TextField()),
                 ('price', models.IntegerField()),

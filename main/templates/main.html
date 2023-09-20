@@ -1,6 +1,51 @@
-<h1>Essential Ease</h1>
+{% extends 'base.html' %}
 
-<h5>Name: </h5>
-<p>{{name}}</p> 
-<h5>Class: </h5>
-<p>{{class}}</p> 
+{% block content %}
+    <h1>Essential Ease</h1>
+
+    <h5>Name:</h5>
+    <p>{{name}}</p>
+
+    <h5>Class:</h5>
+    <p>{{class}}</p>
+
+    <h5>Persediaan</h5>
+    <p>Di Essential Ease terdapat {{item_count}} item</p>
+<style>
+        table th, table td {
+           padding-left: 20px; /* Add padding to the left for each cell */
+           padding-right: 20px; /* Add padding to the right for each cell */
+       }
+</style>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Category</th>
+    </tr>
+
+    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+    {% for i in item %}
+        <tr>
+            <td>{{i.name}}</td>
+            <td>{{i.amount}}</td>
+            <td>{{i.description}}</td>
+            <td>{{i.price}}</td>
+            <td>{{i.category}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<br />
+
+<a href="{% url 'main:create_item' %}">
+    <button>
+        Add New item
+    </button>
+</a>
+
+{% endblock content %}
