@@ -90,14 +90,20 @@ HTML adalah blok bangunan utama dalam pengembangan web dan digunakan untuk mende
 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step
 
 1. Membuat `form.py` di dalam folder `main`.
+   Di dalam file `forms.py` saya membuat clas `ItemForm` untuk formnya sendiri saya menggunakan `ModelForm` sebagai parameter. Di dalam class saya membuat class `META` yang mengandung `model = item` untuk mengarahkan model yang digunakan. Ini juga berisi `fields = ["name", "amount", "description", "price", "category"]` untuk memilih atribut-atribut dari model Item.
    
 2. Membuat objek `create_item` di dalam file `view.py`
+Di dalam file `views.py`, kita membuat fungsi `create_item` yang menerima parameter request. Di dalam `create_item`, kita membuat sebuah `ItemForm` baru yang diisi dengan input pengguna dalam `request.POST` sebagai `QueryDict`. Kemudian, kita memvalidasi kontennya dengan menggunakan `form.is_valid()` dan menyimpan kontennya dengan menggunakan `form.save()`. Jika kontennya berhasil disimpan, kembali ke halaman utama dengan menggunakan `return HttpResponseRedirect(reverse('main:show_main'))`. Fungsi ini akan merender `create_item.html`.
    
 3. Mengedit fungsi `show_main` di dalam file `view.py`
+Tambahkan perintah `item = Item.objects.all()` untuk mengambil semua objek item dari basis data aplikasi.
    
-4. Membuat URL routiing untuk `create_item`
-   
+4. Membuat URL routiing untuk `create_item`\
+   Di dalam `urls.py` di dalam `essential_ease` tambahkan `path('create_item', create_item, name='create_item'),`.
+
 5. Membuat file `create_item.html` di dalam folder `templates` yang berada di dalam folder `main`
+   Isi file HTML dengan kode yang sesuai untuk menampilkan form sebagai tabel, gunakan `{% csrf_token %}` sebagai keamanan, dan gunakan `<form method="POST">` untuk menandai formulir dengan metode `POST`.
+   
 6. Membuat objek `show_xml` dan membuat URL routingnya
     Objek Item yang Diambil dan Dikembalikan sebagai XML dengan Menggunakan
     ```py
@@ -106,6 +112,7 @@ Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-b
         return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
     ```
     di `urls.py` di dalam `essential_ease` tambahkan `path('show_xml/', show_xml, name='show_xml'),`
+   
  7. Membuat objek `show_json` dan membuat URL routingnya
     Objek Item yang Diambil dan Dikembalikan sebagai JSON dengan Menggunakan
    ```py
@@ -115,6 +122,7 @@ Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-b
 
    ```
    di `urls.py` di dalam `essential_ease` tambahkan `path('show_json/', show_json, name='show_json'),`
+   
 8. Membuat objek `show_xml_by_id` dan membuat URL routingnya
 Objek Item yang Diambil dan Dikembalikan sebagai XML dengan Menggunakan
     ```py
@@ -143,6 +151,9 @@ Objek Item yang Diambil dan Dikembalikan sebagai XML dengan Menggunakan
 
 ![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/Screenshot%20(311).png?raw=true)
 
+# Tugas 4
+## Jawaban
+### Nomor 1
 
 
 
