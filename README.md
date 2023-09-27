@@ -150,6 +150,15 @@ Objek Item yang Diambil dan Dikembalikan sebagai XML dengan Menggunakan
 ![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/Screenshot%20(311).png?raw=true)
 
 # Tugas 4
+### Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
+#### Dummy 1
+![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/dummy1.png?raw=true)
+
+
+#### Dummy 2
+![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/dummy2.png.png?raw=true)
+
+
 ### Nomor 1
 Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
 Django UserCreationForm digunakan untuk membuat pengguna baru yang dapat menggunakan aplikasi web kita. Formulir ini memiliki tiga bidang: username, password1, dan password2 (yang digunakan untuk konfirmasi kata sandi). Keuntungannya adalah sangat mudah digunakan dan memiliki template sendiri untuk formulir pendaftaran. Kelemahannya adalah memiliki bidang yang terbatas. Misalnya, jika kita ingin mengirimkan email verifikasi untuk memverifikasi pengguna, kita tidak dapat melakukannya karena tidak memiliki bidang email.
