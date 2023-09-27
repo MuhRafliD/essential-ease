@@ -156,7 +156,7 @@ Objek Item yang Diambil dan Dikembalikan sebagai XML dengan Menggunakan
 
 
 #### Dummy 2
-![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/dummy2.png.png?raw=true)
+![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/dummy2.png?raw=true)
 
 
 ### Nomor 1
