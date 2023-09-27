@@ -177,5 +177,7 @@ Cookies sendiri tidak secara inheren aman atau tidak aman; keamanannya bergantun
 
 ### Nomor 5
 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+1. Membuat form dan fungsi Register
+2. Membuat form dan fungsi login, lalu tambahkan tanggal Last Login
 
 
