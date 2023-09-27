@@ -10,7 +10,6 @@ EssentialEase adalah sahabat Anda dalam menjalani kehidupan sehari-hari yang sib
 [Klik disini untuk membuka apikasi](https://essential-ease.adaptable.app/)
 
 # Tugas 2 
-## Jawaban
 ### Nomor 1
 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 1. Membuat sebuah proyek Django baru.
@@ -70,7 +69,6 @@ MVT adalah Model-View-Template. Dalam MVT, Model menyimpan data dan logika aplik
 MVVM adalah Model-View-ViewModel. Dalam MVVM, Model menyimpan data dan logika aplikasi, View menampilkan data dari Model, dan ViewModel mengubah data dari Model menjadi format yang dapat dengan mudah ditampilkan dan diinteraksi oleh View. MVC dan MVT mirip, dengan perbedaan utama terletak pada terminologi yang digunakan dan detail implementasi yang khusus dalam kerangka kerja masing-masing. MVVM memperkenalkan pemisahan yang jelas antara View dan ViewModel, dengan penekanan pada data binding dan komunikasi dua arah antara keduanya.
 
 # Tugas 3 
-## Jawaban
 ### Nomor 1
 Apa perbedaan antara form POST dan form GET dalam Django?
 
@@ -152,8 +150,23 @@ Objek Item yang Diambil dan Dikembalikan sebagai XML dengan Menggunakan
 ![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/Screenshot%20(311).png?raw=true)
 
 # Tugas 4
-## Jawaban
 ### Nomor 1
+Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
+Django UserCreationForm digunakan untuk membuat pengguna baru yang dapat menggunakan aplikasi web kita. Formulir ini memiliki tiga bidang: username, password1, dan password2 (yang digunakan untuk konfirmasi kata sandi). Keuntungannya adalah sangat mudah digunakan dan memiliki template sendiri untuk formulir pendaftaran. Kelemahannya adalah memiliki bidang yang terbatas. Misalnya, jika kita ingin mengirimkan email verifikasi untuk memverifikasi pengguna, kita tidak dapat melakukannya karena tidak memiliki bidang email.
 
+### Nomor 2
+Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+Autentikasi memverifikasi bahwa seorang pengguna adalah apa yang mereka klaim menjadi, sedangkan otorisasi menentukan apa yang diizinkan oleh seorang pengguna yang telah diotentikasi untuk dilakukan. Autentikasi dan otorisasi adalah dua proses keamanan informasi yang sangat penting yang digunakan oleh administrator untuk melindungi sistem dan informasi. Autentikasi memverifikasi identitas seorang pengguna atau layanan, dan otorisasi menentukan hak akses mereka.
+
+### Nomor 3
+Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+Cookies adalah berkas teks yang berisi potongan-potongan data kecil yang digunakan untuk mengidentifikasi komputer Anda saat Anda menggunakan jaringan. Django menggunakan sebuah cookie yang berisi ID sesi khusus untuk mengidentifikasi setiap peramban (browser) dan sesi yang terkait dengan situs tersebut. Data sesi sebenarnya disimpan dalam basis data situs secara default.
+
+### Nomor 4
+Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+Cookies sendiri tidak secara inheren aman atau tidak aman; keamanannya bergantung pada bagaimana kuki tersebut digunakan dan diimplementasikan. Kuki adalah potongan-potongan kecil data yang disimpan oleh situs web pada perangkat pengguna untuk melacak informasi atau menjaga data sesi. Risiko potensialnya adalah bahwa pelaku kejahatan dunia maya dapat mencuri data sensitif dari kuki jika kuki tersebut tidak diamankan.
+
+### Nomor 5
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
 
