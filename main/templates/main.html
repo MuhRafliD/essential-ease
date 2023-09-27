@@ -18,27 +18,44 @@
        }
 </style>
 
-<table>
+<table border="1">
     <tr>
         <th>Name</th>
-        <th>Amount</th>
+        <th>Category</th>
         <th>Description</th>
         <th>Price</th>
-        <th>Category</th>
+        <th>Amount</th>
+        <th>Action</th>
     </tr>
-
+ 
     {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
-    {% for i in item %}
+ 
+    {% for item in items %}
         <tr>
-            <td>{{i.name}}</td>
-            <td>{{i.amount}}</td>
-            <td>{{i.description}}</td>
-            <td>{{i.price}}</td>
-            <td>{{i.category}}</td>
+            <td style="padding: 5px;">{{ item.name }}</td>
+            <td style="padding: 5px;">{{ item.category }}</td>
+            <td style="padding: 5px;">{{ item.description }}</td>
+            <td style="padding: 5px;">{{ item.price }}</td>
+            <td style="padding: 5px;">{{ item.amount }}</td>
+            <td>
+                <form method="post">
+                    {% csrf_token %}
+                    <div style="display: flex; flex-direction: column;">
+                        <button type="submit" name="increment" value="{{ item.id }}">
+                            + Amount
+                        </button>
+                        <button type="submit" name="decrement" value="{{ item.id }}">
+                            - Amount
+                        </button>
+                        <button type="submit" name="delete" value="{{ item.id }}">
+                            Delete
+                        </button>
+                    </div>
+                </form>
+            </td>
         </tr>
     {% endfor %}
-</table>
+ </table>
 
 <br />
 
@@ -48,4 +65,11 @@
     </button>
 </a>
 
+<a href="{% url 'main:logout' %}">
+    <button>
+        Logout
+    </button>
+</a>
+
+<h5>Sesi terakhir login: {{ last_login }}</h5>
 {% endblock content %}
