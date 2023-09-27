@@ -249,3 +249,17 @@ di dalam `show_main` tambahkan fungsi `'name': request.user.username` di dalam c
 7. Membuat Tombol Peningkatan dan Pengurangan untuk Jumlah serta Tombol Hapus untuk Menghapus Item
 
 
+# Tugas 5
+## Nomor 1
+Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+
+## Nomor 2
+Jelaskan HTML5 Tag yang kamu ketahui.
+
+## Nomor 3
+Jelaskan perbedaan antara margin dan padding.
+
+## Nomor 4
+Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+
+
