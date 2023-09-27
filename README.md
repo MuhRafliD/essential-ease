@@ -169,21 +169,74 @@ Cookies sendiri tidak secara inheren aman atau tidak aman; keamanannya bergantun
 ### Nomor 5
 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 1. Membuat form dan fungsi Register
+di dalam `views.py` import `Redirect`, `UserCreationForm`, dan `Messages`. Membuat sebuah fungsi `Register` seperti berikut:
 
+```py
+def register(request):
+    form = UserCreationForm()
 
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your account has been successfully created!')
+            return redirect('main:login')
+    context = {'form':form}
+    return render(request, 'register.html', context)
+```
+Setelah membuat fungsi, buat file baru `register.html` di `main\templates` untuk mendapatkan data dari web. Membuat fungsi routing di dalam `urls.py`
 2. Membuat form dan fungsi login, lalu tambahkan tanggal Last Login
-
+di dalam `views.py` import `authenticate` dan `login`. Membuat fungsi `login_user` yang memuat tanggal last login dan menambahkan cookie sepert berikut:
+```py
+def login_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            response = HttpResponseRedirect(reverse("main:show_main")) 
+            response.set_cookie('last_login', str(datetime.datetime.now()))
+            return response
+        else:
+            messages.info(request, 'Sorry, incorrect username or password. Please try again.')
+    context = {}
+    return render(request, 'login.html', context)
+```
+Setelah membuat fungsi, buat file baru `login.html` di `main\templates` untuk login user. saya menambahkan `'last_login': request.COOKIES['last_login'],` di dalam `context` untuk menampilkan data last login pada `main.html`. Membuat fungsi routing di dalam `urls.py`
 
 3. Membuat form dan fungsi logout, juga Menghapus Last login dari Cookie
-
-
+di dalam `views.py` import `logout`. Membuat fungsi `logout_user` yang memuat delete last login dari coockie seperti berikut:
+```py
+def logout_user(request):
+    logout(request)
+    response = HttpResponseRedirect(reverse('main:login'))
+    response.delete_cookie('last_login')
+    return response
+```
+Membuat fungsi routing di dalam `urls.py`. Menambahkan sebuah `logout` button di dalam `main.html` untuk logout user
 4. Membatasi Akses ke Halaman Utama Jika Pengguna Belum Masuk (Login)
-
+di dalam `views.py` import `login_required` lalu tambahkan `@login_required(login_url='/login')` diatas fungsi `show_main`
 
 5. Menghubungkan `item` Model dengan `User` Model
+di dalam `models.py` import user, lalu tambahkan `user = models.ForeignKey(User, on_delete=models.CASCADE)` di dalam model item. modifikasi `create_item` seperti berikut:
+```py
+def create_item(request):
+    form = ItemForm(request.POST or None)
 
+    if form.is_valid() and request.method == "POST":
+     item = form.save(commit=False)
+     item.user = request.user
+     item.save()
+     return HttpResponseRedirect(reverse('main:show_main'))
 
-6. Membuat 2 user dengan 3 item per user
+    context = {'form': form}
+    return render(request, "create_item.html", context)
+```
+di dalam `show_main` tambahkan fungsi `'name': request.user.username` di dalam context. Lalu save
+![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/cookies.png?raw=true)
+
+7. Membuat 2 user dengan 3 item per user
 #### Dummy 1
 ![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/dummy1.png?raw=true)
 
