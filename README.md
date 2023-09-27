@@ -150,15 +150,6 @@ Objek Item yang Diambil dan Dikembalikan sebagai XML dengan Menggunakan
 ![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/Screenshot%20(311).png?raw=true)
 
 # Tugas 4
-### Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
-#### Dummy 1
-![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/dummy1.png?raw=true)
-
-
-#### Dummy 2
-![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/dummy2.png?raw=true)
-
-
 ### Nomor 1
 Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
 Django UserCreationForm digunakan untuk membuat pengguna baru yang dapat menggunakan aplikasi web kita. Formulir ini memiliki tiga bidang: username, password1, dan password2 (yang digunakan untuk konfirmasi kata sandi). Keuntungannya adalah sangat mudah digunakan dan memiliki template sendiri untuk formulir pendaftaran. Kelemahannya adalah memiliki bidang yang terbatas. Misalnya, jika kita ingin mengirimkan email verifikasi untuk memverifikasi pengguna, kita tidak dapat melakukannya karena tidak memiliki bidang email.
@@ -178,6 +169,30 @@ Cookies sendiri tidak secara inheren aman atau tidak aman; keamanannya bergantun
 ### Nomor 5
 Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 1. Membuat form dan fungsi Register
+
+
 2. Membuat form dan fungsi login, lalu tambahkan tanggal Last Login
+
+
+3. Membuat form dan fungsi logout, juga Menghapus Last login dari Cookie
+
+
+4. Membatasi Akses ke Halaman Utama Jika Pengguna Belum Masuk (Login)
+
+
+5. Menghubungkan `item` Model dengan `User` Model
+
+
+6. Membuat 2 user dengan 3 item per user
+#### Dummy 1
+![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/dummy1.png?raw=true)
+
+
+#### Dummy 2
+![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/dummy2.png?raw=true)
+
+
+   
+7. Membuat Tombol Peningkatan dan Pengurangan untuk Jumlah serta Tombol Hapus untuk Menghapus Item
 
 
