@@ -253,13 +253,32 @@ di dalam `show_main` tambahkan fungsi `'name': request.user.username` di dalam c
 ## Nomor 1
 Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
 
+1. Selector Elemen
+Tujuannya adalah untuk Memilih semua elemen HTML dari jenis tertentu. Kami menggunakan selektor ini ketika kami ingin menerapkan gaya pada semua instansi elemen HTML tertentu di seluruh situs web kami. Contoh: selektor p menargetkan semua elemen "<p>"(paragraf).
+
+2. Selektor Kelas
+Tujuannya adalah untuk Memilih elemen dengan nilai atribut kelas tertentu. Kami menggunakan selektor ini ketika kami ingin menerapkan gaya pada satu atau lebih elemen dengan kelas tertentu. Kelas dapat digunakan kembali pada beberapa elemen. Contoh: selektor .btn menargetkan semua elemen dengan kelas="btn".
+
+3. Selektor ID
+Tujuannya adalah untuk Memilih satu elemen dengan nilai atribut id tertentu. Kami menggunakan selektor ini ketika kami ingin menargetkan elemen unik dengan id tertentu. Contoh: selektor #header menargetkan elemen dengan id="header".
+
 ## Nomor 2
 Jelaskan HTML5 Tag yang kamu ketahui.
+
+1. <header> - digunakan untuk menandai elemen bagian teratas dari sebuah laman web atau elemen teratas dari sebuah sektor pada laman web.
+2. <nav> - digunakan untuk menunjukkan bagian navigasi pada sebuah laman web.
+3. <section> - digunakan untuk menandai sebuah sektor pada sebuah laman web.
+4. <article> - digunakan untuk menunjukkan sebuah tulisan atau artikel pada sebuah laman web.
+5. <aside> - digunakan untuk menunjukkan sebuah elemen yang berkaitan dengan isi utama pada sebuah laman web.
+6. <footer> - digunakan untuk menandai elemen bagian bawah dari sebuah laman web atau elemen bagian bawah dari sebuah sektor pada laman web.
 
 ## Nomor 3
 Jelaskan perbedaan antara margin dan padding.
 
+Padding menggambarkan jumlah ruang dalam yang dimiliki oleh suatu elemen, sementara margin adalah ruang putih yang tersedia di sekitar suatu elemen.
+
 ## Nomor 4
 Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+Tailwind adalah sebuah framework CSS yang menawarkan fleksibilitas dan kebebasan yang luas. Ia menawarkan banyak pilihan penyesuaian tetapi memiliki kurva pembelajaran yang lebih tinggi. Bootstrap menyediakan pengalaman pengembangan yang lebih bermutu dan terstruktur dengan beragam komponen pra-dibangun. Bootstrap tidak sefleksibel Tailwind, tetapi lebih mudah untuk dipahami. Kita sebaiknya menggunakan Bootstrap ketika ingin membuat situs web sederhana yang tidak memerlukan banyak penyesuaian pada CSS-nya. Kita sebaiknya menggunakan Tailwind jika ingin membuat situs web yang lebih ekstensif dengan banyak penyesuaian pada CSS-nya.
 
 
