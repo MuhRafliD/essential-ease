@@ -1,75 +1,135 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container">
     <h1>Essential Ease</h1>
 
-    <h5>Name:</h5>
-    <p>{{name}}</p>
+    <div class="user-info">
+        <h5>Name:</h5>
+        <p>{{name}}</p>
 
-    <h5>Class:</h5>
-    <p>{{class}}</p>
+        <h5>Class:</h5>
+        <p>{{class}}</p>
 
-    <h5>Persediaan</h5>
-    <p>Di Essential Ease terdapat {{item_count}} item</p>
-<style>
-        table th, table td {
-           padding-left: 20px; /* Add padding to the left for each cell */
-           padding-right: 20px; /* Add padding to the right for each cell */
-       }
-</style>
+        <h5>Persediaan</h5>
+        <p>Di Essential Ease terdapat {{item_count}} item</p>
+    </div>
 
-<table border="1">
-    <tr>
-        <th>Name</th>
-        <th>Category</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Amount</th>
-        <th>Action</th>
-    </tr>
- 
-    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
- 
-    {% for item in items %}
-        <tr>
-            <td style="padding: 5px;">{{ item.name }}</td>
-            <td style="padding: 5px;">{{ item.category }}</td>
-            <td style="padding: 5px;">{{ item.description }}</td>
-            <td style="padding: 5px;">{{ item.price }}</td>
-            <td style="padding: 5px;">{{ item.amount }}</td>
-            <td>
+    <div class="item-card-container">
+        {% for item in items %}
+        <div class="item-card">
+            <h2>{{ item.name }}</h2>
+            <p><strong>Category:</strong> {{ item.category }}</p>
+            <p><strong>Description:</strong> {{ item.description }}</p>
+            <p><strong>Price:</strong> {{ item.price }}</p>
+            <p><strong>Amount:</strong> {{ item.amount }}</p>
+            <div class="item-actions">
                 <form method="post">
                     {% csrf_token %}
-                    <div style="display: flex; flex-direction: column;">
-                        <button type="submit" name="increment" value="{{ item.id }}">
-                            + Amount
-                        </button>
-                        <button type="submit" name="decrement" value="{{ item.id }}">
-                            - Amount
-                        </button>
-                        <button type="submit" name="delete" value="{{ item.id }}">
-                            Delete
-                        </button>
-                    </div>
+                    <button type="submit" name="increment" value="{{ item.id }}" class="increment-btn">
+                        + Amount
+                    </button>
+                    <button type="submit" name="decrement" value="{{ item.id }}" class="decrement-btn">
+                        - Amount
+                    </button>
+                    <button type="submit" name="delete" value="{{ item.id }}" class="delete-btn">
+                        Delete
+                    </button>
                 </form>
-            </td>
-        </tr>
-    {% endfor %}
- </table>
+                <a href="{% url 'main:edit_item' item.pk %}" class="edit-link">
+                    Edit
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
-<br />
+    <div class="page-actions">
+        <a href="{% url 'main:create_item' %}" class="add-item-link">
+            Add New Item
+        </a>
+        <a href="{% url 'main:logout' %}" class="logout-link">
+            Logout
+        </a>
+        
+    </div>
 
-<a href="{% url 'main:create_item' %}">
-    <button>
-        Add New item
-    </button>
-</a>
+    <div>
+        <h1></h1>
+        <h2></h2>
+        <h5>Sesi terakhir login: {{ last_login }}</h5>
+    </div>
+</div>
 
-<a href="{% url 'main:logout' %}">
-    <button>
-        Logout
-    </button>
-</a>
+<style>
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-<h5>Sesi terakhir login: {{ last_login }}</h5>
-{% endblock content %}
+    .user-info {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .item-card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .item-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .item-card h2 {
+        color: #333;
+        margin-top: 0;
+    }
+
+    .item-actions {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .increment-btn,
+    .decrement-btn,
+    .delete-btn {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .edit-link {
+        color: #007BFF;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .add-item-link,
+    .logout-link {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        text-decoration: none;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}
