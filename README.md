@@ -265,12 +265,12 @@ Tujuannya adalah untuk Memilih satu elemen dengan nilai atribut id tertentu. Kam
 ## Nomor 2
 Jelaskan HTML5 Tag yang kamu ketahui.
 
-1. <header> - digunakan untuk menandai elemen bagian teratas dari sebuah laman web atau elemen teratas dari sebuah sektor pada laman web.
-2. <nav> - digunakan untuk menunjukkan bagian navigasi pada sebuah laman web.
-3. <section> - digunakan untuk menandai sebuah sektor pada sebuah laman web.
-4. <article> - digunakan untuk menunjukkan sebuah tulisan atau artikel pada sebuah laman web.
-5. <aside> - digunakan untuk menunjukkan sebuah elemen yang berkaitan dengan isi utama pada sebuah laman web.
-6. <footer> - digunakan untuk menandai elemen bagian bawah dari sebuah laman web atau elemen bagian bawah dari sebuah sektor pada laman web.
+1. `<header>` - digunakan untuk menandai elemen bagian teratas dari sebuah laman web atau elemen teratas dari sebuah sektor pada laman web.
+2. `<nav>` - digunakan untuk menunjukkan bagian navigasi pada sebuah laman web.
+3. `<section>` - digunakan untuk menandai sebuah sektor pada sebuah laman web.
+4. `<article>` - digunakan untuk menunjukkan sebuah tulisan atau artikel pada sebuah laman web.
+5. `<aside>` - digunakan untuk menunjukkan sebuah elemen yang berkaitan dengan isi utama pada sebuah laman web.
+6. `<footer>` - digunakan untuk menandai elemen bagian bawah dari sebuah laman web atau elemen bagian bawah dari sebuah sektor pada laman web.
 
 ## Nomor 3
 Jelaskan perbedaan antara margin dan padding.
@@ -283,6 +283,491 @@ Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya 
 Tailwind adalah sebuah framework CSS yang menawarkan fleksibilitas dan kebebasan yang luas. Ia menawarkan banyak pilihan penyesuaian tetapi memiliki kurva pembelajaran yang lebih tinggi. Bootstrap menyediakan pengalaman pengembangan yang lebih bermutu dan terstruktur dengan beragam komponen pra-dibangun. Bootstrap tidak sefleksibel Tailwind, tetapi lebih mudah untuk dipahami. Kita sebaiknya menggunakan Bootstrap ketika ingin membuat situs web sederhana yang tidak memerlukan banyak penyesuaian pada CSS-nya. Kita sebaiknya menggunakan Tailwind jika ingin membuat situs web yang lebih ekstensif dengan banyak penyesuaian pada CSS-nya.
 
 ## Nomor 5
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+1. Mengedit file `base.html` dengan menyisipkan kode berikut untuk menerapkan Bootstrap.
+```
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        {% block meta %}
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% endblock meta %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+J4jsl5c9zdLKaUk5Ae5f5b1bw6AUn5f5v8FZJoMxm6f5cH1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        {% block content %}
+        {% endblock content %}
+    </body>
+</html>
+```
+2. Kustomisasi main.html
+```
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Essential Ease</h1>
+
+    <div class="user-info">
+        <h5>Name:</h5>
+        <p>{{name}}</p>
+
+        <h5>Class:</h5>
+        <p>{{class}}</p>
+
+        <h5>Persediaan</h5>
+        <p>Di Essential Ease terdapat {{item_count}} item</p>
+    </div>
+
+    <div class="item-card-container">
+        {% for item in items %}
+        <div class="item-card">
+            <h2>{{ item.name }}</h2>
+            <p><strong>Category:</strong> {{ item.category }}</p>
+            <p><strong>Description:</strong> {{ item.description }}</p>
+            <p><strong>Price:</strong> {{ item.price }}</p>
+            <p><strong>Amount:</strong> {{ item.amount }}</p>
+            <div class="item-actions">
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" name="increment" value="{{ item.id }}" class="increment-btn">
+                        + Amount
+                    </button>
+                    <button type="submit" name="decrement" value="{{ item.id }}" class="decrement-btn">
+                        - Amount
+                    </button>
+                    <button type="submit" name="delete" value="{{ item.id }}" class="delete-btn">
+                        Delete
+                    </button>
+                </form>
+                <a href="{% url 'main:edit_item' item.pk %}" class="edit-link">
+                    Edit
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="page-actions">
+        <a href="{% url 'main:create_item' %}" class="add-item-link">
+            Add New Item
+        </a>
+        <a href="{% url 'main:logout' %}" class="logout-link">
+            Logout
+        </a>
+        
+    </div>
+
+    <div>
+        <h1></h1>
+        <h2></h2>
+        <h5>Sesi terakhir login: {{ last_login }}</h5>
+    </div>
+</div>
+
+<style>
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .user-info {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .item-card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .item-card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .item-card h2 {
+        color: #333;
+        margin-top: 0;
+    }
+
+    .item-actions {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .increment-btn,
+    .decrement-btn,
+    .delete-btn {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .edit-link {
+        color: #007BFF;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .add-item-link,
+    .logout-link {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        text-decoration: none;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}
+```
+![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/mainee.png?raw=true)
+
+3. Kustomisasi Login
+```
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Login</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-form">
+        <h1>Login</h1>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" placeholder="Username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" placeholder="Password" class="form-control">
+            </div>
+            <div class="form-group">
+                <button class="btn login-btn" type="submit">Login</button>
+            </div>
+        </form>
+        {% if messages %}
+            <ul class="error-messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <p>Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a></p>
+    </div>
+</div>
+
+<style>
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login-form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .login-btn {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .error-messages {
+        color: red;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .login-image {
+        margin-left: 20px;
+    }
+
+    /* Add any additional styles as needed */
+</style>
+{% endblock content %}
+```
+![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/loginee.png?raw=true)
+
+4. Kustomisasi Register
+```
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Register</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="register-container">
+    <div class="register-form">
+        <h1>Register</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.username.label_tag }}
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                {{ form.password1.label_tag }}
+                {{ form.password1 }}
+            </div>
+            <div class="form-group">
+                {{ form.password2.label_tag }}
+                {{ form.password2 }}
+            </div>
+            <div class="form-group">
+                <button class="btn register-btn" type="submit">Register</button>
+            </div>
+        </form>
+        {% if messages %}
+            <ul class="error-messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <p>Already have an account? <a href="{% url 'main:login' %}">Login</a></p>
+    </div>
+</div>
+
+<style>
+    .register-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .register-form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .register-btn {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .error-messages {
+        color: red;
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .register-image {
+        margin-left: 20px;
+    }
+
+    /* Add any additional styles as needed */
+</style>
+{% endblock content %}
+```
+![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/registeree.png?raw=true)
+
+5. Kustomisasi add item
+```
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="add-item-container">
+        <h1>Add New Item</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <div class="form-group">
+                <input class="add-item-btn" type="submit" value="Add Item"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .add-item-container {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: left;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    h1 {
+        color: #333;
+        margin-top: 0;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .add-item-btn {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+</style>
+
+{% endblock %}
+```
+![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/addee.png?raw=true)
+
+6. Kustomisasi edit item
+```
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="edit-item-container">
+        <h1>Edit Item</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <div class="form-group">
+                <input class="edit-item-btn" type="submit" value="Edit Item"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .edit-item-container {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: left;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    h1 {
+        color: #333;
+        margin-top: 0;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .edit-item-btn {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+</style>
+
+{% endblock %}
+```
+![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/editee.png?raw=true)
+
 
 
 
