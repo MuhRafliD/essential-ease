@@ -279,6 +279,10 @@ Padding menggambarkan jumlah ruang dalam yang dimiliki oleh suatu elemen, sement
 
 ## Nomor 4
 Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+
 Tailwind adalah sebuah framework CSS yang menawarkan fleksibilitas dan kebebasan yang luas. Ia menawarkan banyak pilihan penyesuaian tetapi memiliki kurva pembelajaran yang lebih tinggi. Bootstrap menyediakan pengalaman pengembangan yang lebih bermutu dan terstruktur dengan beragam komponen pra-dibangun. Bootstrap tidak sefleksibel Tailwind, tetapi lebih mudah untuk dipahami. Kita sebaiknya menggunakan Bootstrap ketika ingin membuat situs web sederhana yang tidak memerlukan banyak penyesuaian pada CSS-nya. Kita sebaiknya menggunakan Tailwind jika ingin membuat situs web yang lebih ekstensif dengan banyak penyesuaian pada CSS-nya.
+
+## Nomor 5
+
 
 
