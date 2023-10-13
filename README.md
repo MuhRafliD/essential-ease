@@ -768,6 +768,36 @@ Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-b
 ```
 ![jsonid](https://github.com/MuhRafliD/essential-ease/blob/main/assets/editee.png?raw=true)
 
+# Tugas 6
+## Nomor 1
+Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+
+Synchronous programming adalah metode pemrograman di mana operasi atau tugas-tugas dieksekusi secara berurutan. Dalam metode ini, jika ada operasi yang memerlukan durasi panjang, seluruh program akan menunggu dan tidak dapat melaksanakan operasi lain hingga operasi tersebut berakhir.
+
+Asynchronous programming adalah metode pemrograman yang memungkinkan operasi untuk berjalan di latar belakang dan tidak menghalangi (blocking) eksekusi operasi lainnya. Dalam metode ini, tugas yang membutuhkan waktu yang lama dapat dijalankan secara bersamaan dengan tugas lainnya, sehingga program dapat terus berjalan tanpa terhenti.
+
+Dalam pemrograman Asynchronous programming, program memanfaatkan fungsi callback atau promise untuk mengatasi hasil dari operasi yang sedang dijalankan. Fungsi callback akan diaktifkan saat operasi selesai, sementara promise memberikan nilai setelah operasi rampung. Sebaliknya, dalam Synchronous programming , program akan menanti hingga sebuah operasi selesai sebelum bergerak ke operasi selanjutnya, jadi tidak diperlukan fungsi callback atau promise.
+
+## Nomor 2
+Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+
+aradigma event-driven programming adalah paradigma pemrograman di mana program merespons peristiwa atau event yang terjadi, seperti klik tombol atau masukan dari pengguna. Dalam paradigma ini, program tidak dieksekusi secara berurutan, melainkan menunggu peristiwa atau event yang terjadi untuk memberikan respons. Saat event terjadi, program akan menjalankan fungsi atau kode yang telah ditentukan sebelumnya untuk menangani event tersebut. Paradigma ini terbukti sangat bermanfaat dalam pengembangan aplikasi web interaktif, karena memungkinkan program untuk dengan cepat dan efisien merespons masukan pengguna.
+
+## Nomor 3
+Jelaskan penerapan asynchronous programming pada AJAX.
+
+Pada AJAX, asynchronous programming digunakan untuk mengambil data dari server tanpa harus memuat ulang halaman web. Dalam asynchronous programming, program akan mengirim permintaan ke server dan melanjutkan eksekusi program tanpa harus menunggu respon dari server. Ketika respon dari server diterima, program akan menjalankan fungsi atau kode yang telah ditentukan sebelumnya untuk menangani respon tersebut. Dalam AJAX, asynchronous programming memungkinkan program untuk mengambil data dari server secara efisien dan responsif, tanpa harus memuat ulang halaman web secara keseluruhan. Hal ini membuat pengalaman pengguna menjadi lebih baik dan meningkatkan kinerja aplikasi web secara keseluruhan.
+
+## Nomor 4
+Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+
+Sejak munculnya AJAX, library jQuery telah menjadi instrumen utama dalam implementasinya, menawarkan cara sederhana untuk melakukan permintaan asinkron. Keunggulan dari AJAX melalui jQuery terletak pada kompatibilitas lintas browser-nya, memastikan fungsionalitas bahkan pada browser yang lebih tua yang belum mendukung teknologi web terkini. Namun, seiring berjalannya waktu, browser modern telah menawarkan Fetch API yang merupakan fitur bawaan browser modern, memungkinkan permintaan asinkron tanpa kebutuhan library tambahan. Fetch API menyediakan fleksibilitas lebih dalam mengelola permintaan dan respons, dan mendukung teknologi terbaru seperti promises dan async/await. Mengingat Fetch API adalah standar web modern, dukungan lintas browser sudah luas, dan ini menghilangkan kebutuhan library tambahan.
+Untuk sekarang, Fetch API sering kali dipilih karena kode yang lebih efisien, tidak adanya ketergantungan, dan kapabilitas aslinya. Meskipun demikian, untuk aplikasi yang fokus pada kompatibilitas atau telah mengadopsi jQuery sepenuhnya, AJAX melalui jQuery masih memiliki tempatnya.
+
+
+## Nomor 
+Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
 
 
 
